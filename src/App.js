@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from "./Header/Header"
+import Header from "./Header/Header";
+import { Route, Link} from "react-router-dom";
+import Home from "./Home/Home"
 
 const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 
@@ -23,13 +25,16 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.apod);
 		return (
 			<div>
 				<header>
 					<Header />
 				</header>
-				<p></p>
+				<main> 
+					<Link to="/"> Home </Link>
+				</main>
+				<Route path="/" exact render={() => <Home apod={this.state.apod} /> 
+				} />
 			</div>
 		);
 	}
