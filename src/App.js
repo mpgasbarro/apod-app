@@ -6,15 +6,15 @@ const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
-      api:{},
-    };
+		this.state = {
+			api: {},
+		};
 	}
-	componentDidMount() {    
-    fetch(url) 
+	componentDidMount() {
+		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				this.setState({api: res });
+				this.setState({ api: res });
 			})
 			.catch((err) => {
 				console.error(err);
@@ -22,9 +22,9 @@ class App extends Component {
 	}
 
 	render() {
-    console.log(this.state.api);
+		console.log(this.state.api);
 		return (
-			<div >
+			<div>
 				<p>Hello</p>
 			</div>
 		);
