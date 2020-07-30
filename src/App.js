@@ -4,6 +4,9 @@ import Header from "./Header/Header";
 import { Route, Link} from "react-router-dom";
 import Home from "./Home/Home";
 import Picture from "./Picture/Picture";
+import Calendar from "./Calendar/Calendar";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 
@@ -36,12 +39,13 @@ class App extends Component {
 			<div>
 				<header>
 					<Header />
+					<Calendar />
 				</header>
 				<main>
 					<Link to='/'> Home </Link>
 				</main>
 				<Route path='/' exact render={() => <Home apod={this.state.apod} />} />
-				<Link to="/show/:oldapod"> <Picture /> </Link>
+				<Link to="/show/:oldapod"> More Pictures!</Link>
 				<Route path='/show/:oldapod' exact component={Picture}
 				/>
 			</div>
