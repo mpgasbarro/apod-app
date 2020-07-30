@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Picture.css';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 
@@ -26,6 +27,7 @@ class Picture extends Component {
 		super(props);
 		this.state = {
 			apod: {},
+			date: {},
 		};
 	}
 	componentDidMount() {
