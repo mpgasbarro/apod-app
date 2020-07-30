@@ -4,7 +4,6 @@ import "./Home.css"
 
 class Home extends Component {
     render() {
-        console.log(this.props.apod);
         return (
 					<div>
                         <h2 className="apodTitle"> {this.props.apod.title} </h2>
