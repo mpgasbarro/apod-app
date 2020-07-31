@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from "./Header/Header";
-import { Route, Link} from "react-router-dom";
-import Home from "./Home/Home";
-import Picture from "./Picture/Picture";
-import Calendar from "./Calendar/Calendar";
-import moment from "moment";
+import Header from './Header/Header';
+import { Route, Link } from 'react-router-dom';
+import Home from './Home/Home';
+import Picture from './Picture/Picture';
+import Calendar from './Calendar/Calendar';
+import moment from 'moment';
 
 const url1 = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 
@@ -15,7 +15,6 @@ class App extends Component {
 		this.state = {
 			apod: {},
 			selectedDate: null,
-			
 		};
 	}
 	componentDidMount() {
@@ -29,26 +28,57 @@ class App extends Component {
 			});
 	}
 
-	handleDateSelection = (date,) => {
-		const newDate = moment(date).format("yyyy-MM-DD");
-		this.setState({selectedDate: newDate})
-		console.log(newDate);
-	}
+	getImage = (date) => {
+		const newUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}&date=${date}`;
+
+		fetch(newUrl)
+			.then((res) => res.json())
+			.then((res) => {
+				this.setState({ apod: res });
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
+
+	handleDateSelection = (date) => {
+		const newDate = moment(date).format('yyyy-MM-DD');
+		this.getImage(newDate);
+
+		// this.setState({selectedDate: newDate})
+	};
 
 	render() {
+		console.log(this.state.selectedDate);
 		return (
 			<div>
 				<header className='topOfMenu'>
 					<Header />
+					<Link to='/show/newpic'> Random Picture</Link>
 				</header>
 				<main>
-					<Calendar className="calendar" selectedDate = {this.state.selectedDate} handleDateSelection={this.handleDateSelection} 
-					/>
 					<Link to='/'> Home </Link>
+
+					<Calendar
+						className='calendar'
+						selectedDate={this.state.selectedDate}
+						handleDateSelection={this.handleDateSelection}
+					/>
+					<Route
+						path='/'
+						exact
+						render={() => <Home apod={this.state.apod} />}
+					/>
+					<Route
+						path='/show/newpic'
+						exact
+						render={(routerProp) => {
+							return (
+								<Picture newPic={this.state.apod} match={routerProp.match} />
+							);
+						}}
+					/>
 				</main>
-				<Route path='/' exact render={() => <Home apod={this.state.apod} />} />
-				<Link to='/show/:oldapod'> <Picture /> </Link>
-				<Route path='/show/:oldapod' exact component={Picture} />
 			</div>
 		);
 	}

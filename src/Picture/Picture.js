@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './Picture.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 
+let number = Math.floor((Math.random() *400)+1 )
 
 // Function to set the date back 1 day. Got help from Stack OverFlow
 const changeDate = (urlString, days) => {
@@ -16,8 +15,8 @@ const changeDate = (urlString, days) => {
 
 // New URL that populates for the day prior.
 let newUrl = changeDate(
-	`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}&date=2020-07-30`,
-	-1
+	`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}&date=2020-07-31`,
+	- `${number}`
 );
 
 console.log(newUrl);
@@ -27,7 +26,6 @@ class Picture extends Component {
 		super(props);
 		this.state = {
 			apod: {},
-			date: {},
 		};
 	}
 	componentDidMount() {
@@ -49,6 +47,7 @@ class Picture extends Component {
 					src={this.state.apod.url}
 					atl='more planets'
 				/>
+				{this.state.apod.title}
 			</div>
 		);
 	}
