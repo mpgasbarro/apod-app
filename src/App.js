@@ -14,7 +14,6 @@ class App extends Component {
 		super(props);
 		this.state = {
 			apod: {},
-			selectedDate: null,
 		};
 	}
 	componentDidMount() {
@@ -49,21 +48,22 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(this.state.selectedDate);
 		return (
 			<div>
-				<header className='topOfMenu'>
+				<header>
+					{' '}
 					<Header />
-					<Link to='/show/newpic'> Random Picture</Link>
 				</header>
-				<main>
+				<nav className='navComp'>
 					<Link to='/'> Home </Link>
-
 					<Calendar
 						className='calendar'
 						selectedDate={this.state.selectedDate}
 						handleDateSelection={this.handleDateSelection}
 					/>
+					<Link to='/show/newpic'> Random Picture</Link>
+				</nav>
+				<main>
 					<Route
 						path='/'
 						exact

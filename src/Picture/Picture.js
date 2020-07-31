@@ -42,12 +42,16 @@ class Picture extends Component {
 	render() {
 		return (
 			<div>
-				<img
-					className='secondPic'
-					src={this.state.apod.url}
-					atl='more planets'
-				/>
-				{this.state.apod.title}
+				<h2 className='apodTitle'> {this.state.apod.title} </h2>
+				<h5 className='copyright'> Copyright: {this.state.apod.copyright} </h5>
+				<div className='picAndDes'>
+					<img
+						className='pictureOfDay'
+						src={this.state.apod.url}
+						alt={this.state.apod.explanation}
+					/>
+					<p className='apodDescription'> {this.state.apod.explanation} </p>
+				</div>
 			</div>
 		);
 	}

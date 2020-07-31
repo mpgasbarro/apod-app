@@ -11,7 +11,7 @@ function Calendar(props) {
 				onChange={(date) => props.handleDateSelection(date)}
 				maxDate={new Date()}
 				isClearable
-				placeholderText='Pick the Date'
+				placeholderText='Select Picture by Date'
 			/>
 		</div>
 	);
