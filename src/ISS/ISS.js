@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import "./ISS.css"
 
-let url=""
 class ISS extends Component {
 	constructor(props) {
 		super(props);
@@ -25,11 +25,13 @@ class ISS extends Component {
 		const longitude = `${this.state.iss.longitude}`;
 		const latitude = `${this.state.iss.latitude}`;
 		fetch(
-			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true`
-		)
+			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}`
+		) 
+
+
+
 			.then((response) => response.json())
 			.then((response) => {
-			console.log(response.results[0].locations[0].mapUrl);
 				this.setState({ isspic: response.results[0].locations[0].mapUrl });
 			})
 			.catch((err) => {
@@ -38,12 +40,12 @@ class ISS extends Component {
 	};
 	;
 	render() {
-		console.log(this.state.iss.latitude);
-		console.log(this.state.iss.longitude);
-		console.log(this.state.isspic);
 		return (
 			<div>
-				<img src={this.state.isspic} />
+				<main>  
+				<img src={this.state.isspic} className="issPic" />
+				</main>
+				
 			</div>
 		);
 	}

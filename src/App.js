@@ -47,12 +47,11 @@ class App extends Component {
 	};
 
 	render() {
-		console.log('hello');
 		return (
 			<div className='background'>
 				<header>
 					{' '}
-					<Header />it 
+					<Header />
 				</header>
 				<nav className='navComp'>
 					<Link to='/'>
@@ -67,7 +66,7 @@ class App extends Component {
 						<button className='randomPic'> Random Picture </button>{' '}
 					</Link>
 					<Link to='/iss'>
-						<button className='issBtn'> ISS </button>{' '}
+						<button className='issBtn'> Where is the ISS? </button>{' '}
 					</Link>
 				</nav>
 				<main>
