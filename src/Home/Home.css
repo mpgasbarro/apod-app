@@ -1,7 +1,7 @@
 .pictureOfDay {
     display: flex;
     justify-content: center;
-    width: 1300px;
+    width: 1100px;
     height: auto;
 }
 
@@ -9,17 +9,19 @@
     width: 400px;
     font-size: 20px;
     margin-right: 100px;
+    color: #24305E;
 }
 .picAndDes {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: flex-start;;
 }
 
 .apodTitle {
     display: flex;
     justify-content: flex-end;
     padding-right: 300px;
+    color: #24305E;
 }
 
 .copyright {
@@ -27,4 +29,9 @@
     justify-content: flex-end;
     padding-right: 300px;
     font-size: 10px;
+    color: #24305E;
 }
+
+.wholeBackground {
+    /* background-color: #A8D0E6; */
+} 

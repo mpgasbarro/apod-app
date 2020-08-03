@@ -1,5 +1,7 @@
 .title {
     display: flex;
     justify-content: center;
-    font-family: 'Jacques Francois Shadow', cursive;
+    font-family: 'Syncopate', sans-serif;   
+    color: #F76C6C;
+    padding-top: 50px;;
 }

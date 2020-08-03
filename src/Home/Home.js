@@ -5,7 +5,7 @@ import "./Home.css"
 class Home extends Component {
     render() {
         return (
-					<div>
+					<div className="wholeBackground">
                         <h2 className="apodTitle"> {this.props.apod.title} </h2>
                         <h5 className="copyright"> Copyright: {this.props.apod.copyright} </h5>
                         <div className="picAndDes"> 
