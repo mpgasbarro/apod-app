@@ -10,8 +10,8 @@ class Home extends Component {
 
 	render() {
 		const opts = {
-			height: '390',
-			width: '640',
+			height: '740',
+			width: '940',
 		};
 		if (this.props.apod.media_type === 'video') {
 			return (
