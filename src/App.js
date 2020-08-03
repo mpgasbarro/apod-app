@@ -6,7 +6,7 @@ import Home from './Home/Home';
 import Picture from './Picture/Picture';
 import Calendar from './Calendar/Calendar';
 import moment from 'moment';
-import ISS from "./ISS/ISS"
+import ISS from './ISS/ISS';
 
 const url1 = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 
@@ -47,21 +47,28 @@ class App extends Component {
 	};
 
 	render() {
+		console.log('hello');
 		return (
-			<div className="background">
+			<div className='background'>
 				<header>
 					{' '}
-					<Header />
+					<Header />it 
 				</header>
 				<nav className='navComp'>
-					<Link to='/'><button className="homeBtn"> Home  </button></Link>
+					<Link to='/'>
+						<button className='homeBtn'> Home </button>
+					</Link>
 					<Calendar
 						className='calendar'
 						selectedDate={this.state.selectedDate}
 						handleDateSelection={this.handleDateSelection}
 					/>
-					<Link to='/show/newpic'><button className="randomPic"> Random Picture </button> </Link>
-					<Link to="/iss"><button className="issBtn"> ISS </button> </Link>
+					<Link to='/show/newpic'>
+						<button className='randomPic'> Random Picture </button>{' '}
+					</Link>
+					<Link to='/iss'>
+						<button className='issBtn'> ISS </button>{' '}
+					</Link>
 				</nav>
 				<main>
 					<Route
@@ -78,7 +85,7 @@ class App extends Component {
 							);
 						}}
 					/>
-					<Route path="/iss" exact component={ISS} />
+					<Route path='/iss' exact component={ISS} />
 				</main>
 			</div>
 		);
