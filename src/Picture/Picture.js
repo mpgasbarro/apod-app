@@ -19,8 +19,6 @@ let newUrl = changeDate(
 	- `${number}`
 );
 
-console.log(newUrl);
-
 class Picture extends Component {
 	constructor(props) {
 		super(props);
@@ -50,6 +48,9 @@ class Picture extends Component {
 						src={this.state.apod.url}
 						alt={this.state.apod.explanation}
 					/>
+					<video width='320' height='240'>
+						<source src={this.state.apod.url} type='video/mp4' />
+					</video>
 					<p className='apodDescription'> {this.state.apod.explanation} </p>
 				</div>
 			</div>

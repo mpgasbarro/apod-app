@@ -14,7 +14,7 @@ class ISS extends Component {
 			.then((res) => res.json())
 			.then((res) => {
 				this.setState({ iss: res });
-			})
+			}).then((res) => this.getImage())
 			.catch((err) => {
 				console.error(err);
 			});

@@ -5,7 +5,24 @@
     height: auto;
     border-radius: 15px
 }
+.youtube {
 
+    padding-left: 50px
+}
+.apodYouTubeDescription {
+    display:flex;
+    justify-content: flex-end;
+    width: 700px;
+    font-size: 25px;
+    color: #24305E;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.picAndDesYoutube {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
 .apodDescription {
     width: 450px;
     font-size: 25px;
