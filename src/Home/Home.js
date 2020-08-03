@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import './Home.css';
-import Youtube from 'react-youtube';
+import YouTube from 'react-youtube';
 
 class Home extends Component {
+	_onReady = (event) => {
+		// access to player in all event handlers via event.target
+		event.target.pauseVideo();
+	};
+
 	render() {
+		const opts = {
+			height: '390',
+			width: '640',
+		};
 		if (this.props.apod.media_type === 'video') {
 			return (
 				<div>
@@ -13,7 +22,12 @@ class Home extends Component {
 						Copyright: {this.props.apod.copyright}{' '}
 					</h5>
 					<div className='picAndDesYoutube'>
-						<Youtube className='youtube' opts={this.props.apod.url} />
+						<YouTube
+							className='youtube'
+							videoId={this.props.apod.url.split('/embed/')[1]}
+							opts={opts}
+							onReady={this._onReady}
+						/>
 						<p className='apodYouTubeDescription'>
 							{' '}
 							{this.props.apod.explanation}{' '}
