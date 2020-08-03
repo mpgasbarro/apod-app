@@ -55,13 +55,13 @@ class App extends Component {
 				</header>
 				<nav className='navComp'>
 					<Link to='/'><button className="homeBtn"> Home  </button></Link>
-					<Link to="/iss"><button className="issBtn"> ISS </button> </Link>
 					<Calendar
 						className='calendar'
 						selectedDate={this.state.selectedDate}
 						handleDateSelection={this.handleDateSelection}
 					/>
 					<Link to='/show/newpic'><button className="randomPic"> Random Picture </button> </Link>
+					<Link to="/iss"><button className="issBtn"> ISS </button> </Link>
 				</nav>
 				<main>
 					<Route
