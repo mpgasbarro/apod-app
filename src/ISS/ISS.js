@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./ISS.css"
+import './ISS.css';
 
 class ISS extends Component {
 	constructor(props) {
@@ -25,11 +25,8 @@ class ISS extends Component {
 		const longitude = `${this.state.iss.longitude}`;
 		const latitude = `${this.state.iss.latitude}`;
 		fetch(
-			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}`
-		) 
-
-
-
+			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true&size=1000,1000`
+		)
 			.then((response) => response.json())
 			.then((response) => {
 				this.setState({ isspic: response.results[0].locations[0].mapUrl });
@@ -38,14 +35,12 @@ class ISS extends Component {
 				console.error(err);
 			});
 	};
-	;
 	render() {
 		return (
 			<div>
-				<main>  
-				<img src={this.state.isspic} className="issPic" />
+				<main>
+					<img src={this.state.isspic} className='issPic' />
 				</main>
-				
 			</div>
 		);
 	}
