@@ -25,7 +25,7 @@ class ISS extends Component {
 		const longitude = `${this.state.iss.longitude}`;
 		const latitude = `${this.state.iss.latitude}`;
 		fetch(
-			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true&size=1000,1000`
+			`http://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true`
 		)
 			.then((response) => response.json())
 			.then((response) => {
