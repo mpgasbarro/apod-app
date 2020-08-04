@@ -6,6 +6,11 @@ My app is called Astronomy Picture of the Day or APOD, for short. It is an Astro
 
 ![Screen Shot 2020-08-03 at 6 58 03 PM](https://media.git.generalassemb.ly/user/28784/files/84183100-d5bb-11ea-8b7a-cb76daef8ba9)
 
+
+### Deployed App
+
+https://apod-app.herokuapp.com/
+
 ### Technologies Used
 
 - ReactJS
